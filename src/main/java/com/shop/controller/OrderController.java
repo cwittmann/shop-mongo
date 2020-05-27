@@ -1,8 +1,6 @@
 package com.shop.controller;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 
 import com.shop.exception.NotFoundException;
 import com.shop.model.Order;
@@ -44,7 +42,7 @@ public class OrderController {
     public Order putOrder(@RequestBody Order newOrder, @PathVariable String id) {
         return orderRepository.findById(id).map(order -> {
             return orderRepository.save(newOrder);
-        }).orElseThrow(() -> new NotFoundException("Article not found: " + id));
+        }).orElseThrow(() -> new NotFoundException("Order not found: " + id));
     }
 
     @DeleteMapping("/orders")
