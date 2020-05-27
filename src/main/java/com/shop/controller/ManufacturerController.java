@@ -39,14 +39,14 @@ public class ManufacturerController {
         return manufacturerRepository.save(manufacturer);
     }
 
-    @PutMapping("/manufacturers")
-    public Manufacturer putManufacturer(@RequestBody Manufacturer newManufacturer, @PathVariable String id) {
+    @PutMapping("/manufacturers/{id}")
+    public Manufacturer putManufacturer(@PathVariable String id, @RequestBody Manufacturer newManufacturer) {
         return manufacturerRepository.findById(id).map(manufacturer -> {
             return manufacturerRepository.save(newManufacturer);
         }).orElseThrow(() -> new NotFoundException("Manufacturer not found: " + id));
     }
 
-    @DeleteMapping("/manufacturers")
+    @DeleteMapping("/manufacturers/{id}")
     public void deleteManufacturer(@PathVariable String id) {
         manufacturerRepository.deleteById(id);
     }

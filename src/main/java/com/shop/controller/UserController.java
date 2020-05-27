@@ -38,14 +38,14 @@ public class UserController {
         return userRepository.save(user);
     }
 
-    @PutMapping("/users")
+    @PutMapping("/users{id}")
     public User putUser(@RequestBody User newUser, @PathVariable String id) {
         return userRepository.findById(id).map(user -> {
             return userRepository.save(newUser);
         }).orElseThrow(() -> new NotFoundException("User not found: " + id));
     }
 
-    @DeleteMapping("/users")
+    @DeleteMapping("/users/{id}")
     public void deleteUser(@PathVariable String id) {
         userRepository.deleteById(id);
     }

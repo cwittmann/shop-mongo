@@ -38,14 +38,14 @@ public class OrderLineController {
         return orderLineRepository.save(orderLine);
     }
 
-    @PutMapping("/orderLines")
+    @PutMapping("/orderLines/{id}")
     public OrderLine putOrderLine(@RequestBody OrderLine newOrderLine, @PathVariable String id) {
         return orderLineRepository.findById(id).map(orderLine -> {
             return orderLineRepository.save(newOrderLine);
         }).orElseThrow(() -> new NotFoundException("OrderLine not found: " + id));
     }
 
-    @DeleteMapping("/orderLines")
+    @DeleteMapping("/orderLines/{id}")
     public void deleteOrderLine(@PathVariable String id) {
         orderLineRepository.deleteById(id);
     }

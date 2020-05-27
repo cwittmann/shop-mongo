@@ -38,14 +38,14 @@ public class ProductController {
         return productRepository.save(product);
     }
 
-    @PutMapping("/products")
+    @PutMapping("/products/{id}")
     public Product putProduct(@RequestBody Product newProduct, @PathVariable String id) {
         return productRepository.findById(id).map(product -> {
             return productRepository.save(newProduct);
         }).orElseThrow(() -> new NotFoundException("Product not found: " + id));
     }
 
-    @DeleteMapping("/products")
+    @DeleteMapping("/products/{id}")
     public void deleteProduct(@PathVariable String id) {
         productRepository.deleteById(id);
     }
