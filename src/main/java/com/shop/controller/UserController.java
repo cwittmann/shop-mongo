@@ -38,7 +38,7 @@ public class UserController {
         return userRepository.save(user);
     }
 
-    @PutMapping("/users{id}")
+    @PutMapping("/users/{id}")
     public User putUser(@RequestBody User newUser, @PathVariable String id) {
         return userRepository.findById(id).map(user -> {
             return userRepository.save(newUser);
