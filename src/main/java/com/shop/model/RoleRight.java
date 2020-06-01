@@ -2,15 +2,15 @@ package com.shop.model;
 
 import org.springframework.data.annotation.Id;
 
-public class UserRight {
+public class RoleRight {
     @Id
     public String id;
-    public String userId;
+    public String roleId;
     public String rightId;
 
-    public UserRight(String id, String userId, String rightId) {
+    public RoleRight(String id, String roleId, String rightId) {
         this.id = id;
-        this.userId = userId;
+        this.roleId = roleId;
         this.rightId = rightId;
     }
 }

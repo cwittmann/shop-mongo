@@ -8,11 +8,13 @@ public class User {
     public String firstName;
     public String lastName;
     public String city;
+    public String roleId;
 
-    public User(String id, String firstName, String lastName, String city) {
+    public User(String id, String firstName, String lastName, String city, String roleId) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.city = city;
+        this.roleId = roleId;
     }
 }
