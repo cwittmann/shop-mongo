@@ -5,16 +5,16 @@ import org.springframework.data.annotation.Id;
 public class Product {
     @Id
     public String id;
-    public String manufacturerId;
     public String name;
     public String description;
     public String price;
+    public Manufacturer manufacturer;
 
-    public Product(String id, String manufacturerId, String name, String description, String price) {
+    public Product(String id, String name, String description, String price, Manufacturer manufacturer) {
         this.id = id;
-        this.manufacturerId = manufacturerId;
         this.name = name;
         this.description = description;
         this.price = price;
+        this.manufacturer = manufacturer;
     }
 }
