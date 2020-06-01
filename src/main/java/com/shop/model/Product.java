@@ -8,13 +8,16 @@ public class Product {
     public String name;
     public String description;
     public String price;
+    public String manufacturerId;
     public Manufacturer manufacturer;
 
-    public Product(String id, String name, String description, String price, Manufacturer manufacturer) {
+    public Product(String id, String name, String description, String price, String manufacturerId,
+            Manufacturer manufacturer) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
+        this.manufacturerId = manufacturerId;
         this.manufacturer = manufacturer;
     }
 }
